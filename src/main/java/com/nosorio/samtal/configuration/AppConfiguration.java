@@ -9,7 +9,6 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 @EnableWebSocket
 public class AppConfiguration implements WebSocketConfigurer {
 
-	// Test
 	@Override
 	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
 	    registry.addHandler(new SocketHandler(), "/socket").addHandler(new SamtalHandler(), "/samtal")
