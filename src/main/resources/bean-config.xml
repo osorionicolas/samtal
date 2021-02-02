@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	    http://www.springframework.org/schema/beans/spring-beans.xsd">
+  
+	<bean id="kurento" class="org.kurento.client.KurentoClient" factory-method="create">
+	  	<constructor-arg value="ws://secretcolossus.ddns.net:8888/kurento"/>
+	</bean>
+                            
+  	<bean id="userService" class="com.nosorio.samtal.services.UserService" />
+  	<bean id="roomService" class="com.nosorio.samtal.services.RoomService">
+  		<property name="kurento" ref="kurento" />
+  	</bean>
+     
+</beans>

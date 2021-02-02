@@ -1,0 +1,171 @@
+:root {
+  --grid-template-portrait:
+          	'remote remote'
+	        'video video'
+	        'buttons buttons';
+   
+  --grid-template-landscape:
+  	        'remote video'
+	        'remote video'
+	        'buttons buttons';
+}
+
+body {
+	background: black;
+}
+
+.mirror {
+	transform: rotateY(180deg);
+}
+
+#volume {
+	transform: rotate(-90deg);
+    position: relative;
+    bottom: 6rem;
+    float: left;
+    right: 35px;
+}
+
+
+#buttonsBar {
+	background: white;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.video {
+	height: 100%;
+    width: 100%;
+    object-fit: fill;
+    border: solid;
+}
+
+.grid-container {
+	display: grid;
+    grid-template-areas: var(--grid-template-portrait);
+    grid-template-rows: repeat(2, 43%) 14%;
+    min-height: 100vh;
+    grid-auto-columns: 1fr;
+}
+
+.icon {
+	font-size: 1em;
+}
+
+
+@media (orientation:landscape) {
+
+	.grid-container {
+	    grid-template-areas: var(--grid-template-landscape);
+	}
+	
+		
+	 @media (min-width: 961px) {
+		.icon {
+			font-size: 1.5em;
+		}
+
+	 }
+}
+
+.button{
+	background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+	background-image: linear-gradient(top, #f4f1ee, #fff);
+	border-radius: 50%;
+	box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+	height: calc(6vh + 2vw);
+    width: calc(6vh + 2vw);	
+	-webkit-transition: all .1s linear;
+	transition: all .1s linear;
+	outline: none;
+	border: none;
+	margin: 0 1vw;
+}
+
+.button:after{
+	color:#e9e6e4;
+	content: "";
+	display: block;
+	font-size: 30px;
+	height: 30px;
+	text-decoration: none;
+	text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white;
+	position: absolute;
+	width: 30px;
+}
+
+.button:hover{
+	background-image: -webkit-linear-gradient(top, #fff, #f4f1ee);
+	background-image: linear-gradient(top, #fff, #f4f1ee);
+	color:#0088cc;
+}
+
+.button:focus {
+    outline: none;
+}
+
+.button:active{
+	background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
+	background-image: linear-gradient(top, #efedec, #f7f4f4);
+	box-shadow: 0 3px 5px 0 rgba(0,0,0,.4), inset 0px -3px 1px 1px rgba(204,198,197,.5);
+}
+
+.button:active:after{
+	color:#dbd2d2;
+	text-shadow: 0px -1px 1px #bdb5b4, 0px 1px 1px white;
+}
+
+.inactive{
+	color: red;
+}
+
+/* Options */
+
+.custom-popover li {
+  border: none!important;
+  text-align: center;
+  cursor: pointer;
+}
+
+.custom-popover li {
+  border-top: 1px solid #ccc!important;
+}
+
+/* Modal */
+.modal-body {
+	min-height: 200px;
+}
+
+/* Chat */
+
+#chat {
+	min-height: calc(100% - 78px);
+	height: 100px;
+    overflow-y: scroll;
+    margin-bottom: 15px;
+    padding: 15px;
+}
+
+#messageInput {
+	resize: none;
+}
+
+.message {
+	border-bottom: solid;    
+	display: block;
+}
+
+.messageResponse {
+	text-align: right;
+}
+
+.focusOnRemote {
+	bottom: 14%;
+    right: 0;
+    width: 20vw;
+    height: 20vw;
+    position: absolute;
+}
